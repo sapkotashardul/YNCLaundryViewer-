@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, monospace;
+}
+
+/* The grid: Three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+  font-family: monospace;
+}
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+.row{
+     margin-top: 45px;
+    font-family: monospace;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the container tab */
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* Float four columns side by side */
+.card_column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.card_row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.card_row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .card_column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+</style>
+        <!--<h1>Hey there, </h1>-->
+        <!--<br>-->
+        <!--<h2>Cendana College Laundry Machine:</h2>-->
+        <!--<p>Washer 1. Status: {{ content }} </p>-->
+
+<!--The content below is only a placeholder and can be replaced.-->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <!--Yale-NUS Laundry Viewer-->
+  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+   <span class="navbar-brand font-weight-normal welcome-msg mx-auto" style="font-family:monospace; width: 280px;">
+       Yale-NUS Laundry Viewer
+   </span>
+</nav>
+<!-- <div class="vertical-center"> -->
+<div class="container font-weight-normal my-3 custom-font" style="text-align: center;">
+		<router-outlet></router-outlet>
+</div>
+<!-- </div> -->
+<!--<ng-template #loading><div style="text-align: center; margin-top: 100px; padding: 10px;" class="container">Loading Data...</div></ng-template>-->
+<div style="text-align:center">
+  <h2 style="font-family: monospace;">Click to check the status of laundry machines</h2>
+  <p>  </p>
+</div>
+
+<!-- Three columns -->
+
+<div class="row">
+  <div class="column" onclick="openTab('b1');" style="background:#3286af;">
+    Saga
+  </div>
+  <div class="column" onclick="openTab('b2');" style="background:#2c617b;">
+    Elm
+  </div>
+  <div class="column" onclick="openTab('b3');" style="background:#376880;">
+    Cendana
+  </div>
+</div>
+
+<!-- Full-width columns: (hidden by default) -->
+<div id="b1" class="containerTab" style="display:none;background:#3286af">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Saga</h2>
+  <p>Coming soon....</p>
+</div>
+
+<div id="b2" class="containerTab" style="display:none;background:#2c617b">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Elm</h2>
+<div class="card_row">
+  <div class="card_column">
+    <div class="card">
+      <h3>Washer 1</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="elm_washer1"></span></p>
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card">
+      <h3>Washer 2</h3>
+      <!--<p>{{elm_washer2}}</p>-->
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card">
+      <h3>Washer 3</h3>
+      <!--<p>{{elm_washer3}}</p>-->
+    </div>
+  </div>
+
+     <div class="card_column">
+    <div class="card">
+      <h3>Washer 4</h3>
+      <!--<p>{{elm_washer4}}</p>-->
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card">
+      <h3>Washer 5</h3>
+      <!--<p>{{elm_washer4}}</p>-->
+    </div>
+  </div>
+
+   <div class="card_column">
+    <div class="card">
+      <h3>Washer 6</h3>
+      <!--<p>{{elm_washer6}}</p>-->
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+
+<div id="b3" class="containerTab" style="display:none;background:#376880">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Cendana</h2>
+  <p>Coming soon....</p>
+</div>
+
+<script>
+function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}
+</script>
+
+<script type="text/javascript">
+   window.setInterval(function(){
+      $("#elm_washer1").load("/washer_status");
+   }, 1000)
+</script>
+
+<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark">
+	<div class="mx-auto">
+		     <app-login></app-login>
+	</div>
+</nav>
+
+
+{% endblock %}
