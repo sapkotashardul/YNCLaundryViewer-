@@ -6,6 +6,7 @@
 
 .navbar-brand{
   /*margin-left: 9rem;*/
+    padding: 20px 15px;
 }
 
 .welcome-msg {
