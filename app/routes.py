@@ -79,7 +79,7 @@ def view_index():
     # elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
     # elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
 
-    return render_template('index.html')
+    return render_template('coming_soon.html')
 
 
 @app.route('/elm_washer1_status')
