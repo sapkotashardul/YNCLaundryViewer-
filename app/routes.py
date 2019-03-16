@@ -69,32 +69,44 @@ def view_index():
 
 @app.route('/elm_washer1_status')
 def elm_washer1_status():
-    elm_washer1, elm_washer1_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
+    elm_washer1 = None
+    while (elm_washer1 != None):
+        elm_washer1, elm_washer1_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
     return elm_washer1
 
 @app.route('/elm_washer2_status')
 def elm_washer2_status():
-    elm_washer2, elm_washer2_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
+    elm_washer2 = None
+    while (elm_washer2 != None):
+        elm_washer2, elm_washer2_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
     return elm_washer2
 
 @app.route('/elm_washer3_status')
 def elm_washer3_status():
-    elm_washer3, elm_washer3_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
+    elm_washer3 = None
+    while (elm_washer3 != None):
+        elm_washer3, elm_washer3_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
     return elm_washer3
 
 @app.route('/elm_washer4_status')
 def elm_washer4_status():
-    elm_washer4, elm_washer4_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
+    elm_washer4 = None
+    while (elm_washer4 != None):
+        elm_washer4, elm_washer4_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
     return elm_washer4
 
 @app.route('/elm_washer5_status')
 def elm_washer5_status():
-    elm_washer5, elm_washer5_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
+    elm_washer5 = None
+    while (elm_washer5 != None):
+        elm_washer5, elm_washer5_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
     return elm_washer5
 
 @app.route('/elm_washer6_status')
 def elm_washer6_status():
-    elm_washer6, elm_washer6_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
+    elm_washer6 = None
+    while (elm_washer6 != None):
+        elm_washer6, elm_washer6_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
     return elm_washer6
 
     # elm_washer2, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')

@@ -13,7 +13,8 @@ SENSORVALS = []
 def determine_sensor_status(value):
     if value < 300:
         return ON
-    elif value > 800:
+    # elif value > 800:
+    else:
         return OFF
 
 
