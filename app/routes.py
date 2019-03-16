@@ -59,13 +59,13 @@ def view_index():
     value = queried_value.sensorValue
     print("DB VAL ", value)
     elm_washer1, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
-    # elm_washer2, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
-    # elm_washer3, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
-    # elm_washer4, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
-    # elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
-    # elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
+    elm_washer2, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
+    elm_washer3, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
+    elm_washer4, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
+    elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
+    elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
 
-    return render_template('index.html', elm_washer1=elm_washer1)
+    return render_template('index.html', elm_washer1=elm_washer1, elm_washer2=elm_washer2, elm_washer3=elm_washer3, elm_washer4=elm_washer4, elm_washer5=elm_washer5, elm_washer6=elm_washer6)
 
 @app.route('/washer_status')
 def washer_status():

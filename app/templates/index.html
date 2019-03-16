@@ -89,7 +89,7 @@ body {
 /* Float four columns side by side */
 .card_column {
   float: left;
-  width: 25%;
+  width: 33.33%;
   padding: 0 10px;
   margin-bottom: 30px;
 }
@@ -383,7 +383,7 @@ function openTab(tabName) {
 <script type="text/javascript">
    window.setInterval(function(){
       $("#elm_washer1").load("/washer_status");
-   }, 1000)
+   }, 60 * 1000) // make requests every minute
 </script>
 
 <script>
@@ -392,7 +392,34 @@ if (document.getElementById("elm_washer1").textContent == "UNAVAILABLE") {
 } else {
     document.getElementsByClassName("card-elm-washer1")[0].style.backgroundColor = "#098009";
 }
+if (document.getElementById("elm_washer2").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#8c1421";
+} else {
+    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("elm_washer3").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#8c1421";
+} else {
+    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("elm_washer4").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#8c1421";
+} else {
+    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("elm_washer5").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#8c1421";
+} else {
+    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("elm_washer6").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#8c1421";
+} else {
+    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#098009";
+}
+
 </script>
+
 
 <!--<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark">-->
 	<!--<div class="mx-auto">-->
@@ -401,7 +428,7 @@ if (document.getElementById("elm_washer1").textContent == "UNAVAILABLE") {
 <!--</nav>-->
 <div class="bottom_navbar">
 
- <a href="#feedback" style="font-family: monospace">Any Feedback?</a>
+ <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/forms/6bKjSPHquMfg7kvB2" style="font-family: monospace">Any Feedback?</a>
 
 </div>
 
