@@ -382,7 +382,22 @@ function openTab(tabName) {
 
 <script type="text/javascript">
    window.setInterval(function(){
-      $("#elm_washer1").load("/washer_status");
+      $("#elm_washer1").load("/elm_washer1_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#elm_washer2").load("/elm_washer2_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#elm_washer3").load("/elm_washer3_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#elm_washer4").load("/elm_washer4_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#elm_washer5").load("/elm_washer5_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#elm_washer6").load("/elm_washer6_status");
    }, 60 * 1000) // make requests every minute
 </script>
 
@@ -417,7 +432,6 @@ if (document.getElementById("elm_washer6").textContent == "UNAVAILABLE") {
 } else {
     document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#098009";
 }
-
 </script>
 
 
