@@ -54,7 +54,7 @@ def index():
 
 
 @app.route('/test')
-def view_index():
+def view_index_test():
     queried_value = Sensor.query.order_by(Sensor.timestamp.desc()).first()
     value = queried_value.sensorValue
     print("DB VAL ", value)
