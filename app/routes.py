@@ -3,7 +3,6 @@ from app import app, db
 from app.models import Sensor
 from app.process_sensor_data import get_latest_sensor_value
 import app.constants as CONSTANTS
-from app import logger
 
 ON = CONSTANTS.ON
 OFF = CONSTANTS.OFF
@@ -36,11 +35,11 @@ OFF = CONSTANTS.OFF
 def index():
     app.logger.info('successfully posted')
     print("making a post request....")
-    logger.debug("making a post request....")
+    # logger.debug("making a post request....")
     content = request.get_json()
     if content:
         print(content)
-        logger.debug(content)
+        # logger.debug(content)
         value = int(content.get("sensorValue"))
         college = str(content.get("college"))
         machineLabel = str(content.get("machineLabel"))
