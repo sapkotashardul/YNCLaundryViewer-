@@ -1,6 +1,7 @@
 import app.constants as CONSTANTS
 from app import app, db
 from app.models import Sensor, SensorStatus
+from app import logger
 
 ON = CONSTANTS.ON
 OFF = CONSTANTS.OFF
@@ -22,8 +23,11 @@ def get_latest_sensor_value(college, machineLabel):
     global SENSORVALS
     latest_result = Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel=machineLabel, college=college).first()
     print ("latest sensor result: ", latest_result)
+    logger.debug("latest sensor result: {0}".format(latest_result))
+
     if len(SENSORVALS) < READ_LIMIT:
         print ("SENSORVALS Count: ", len(SENSORVALS))
+        logger.debug("SENSORVALS Count: {0}".format(SENSORVALS))
         SENSORVALS.append(latest_result.sensorValue)
         result = SensorStatus.query.order_by(SensorStatus.timestamp.desc()).filter_by(machineLabel=machineLabel,
                                                                                             college=college).first_or_404().status
@@ -31,11 +35,14 @@ def get_latest_sensor_value(college, machineLabel):
         # return 'Sorry! No information available yet', True
     if len(SENSORVALS) == READ_LIMIT:
         print ("SENSORVALS ready to be processed")
+        logger.debug("SENSORVALS ready to be processed")
         result = verify_sensor_status(SENSORVALS)
         print ("result of processing sensor stats: ", result)
+        logger.debug("result of processing sensor stats: {0}".format(result))
         try:
             sensorStatus = SensorStatus.query.order_by(SensorStatus.timestamp.desc()).filter_by(machineLabel=machineLabel, college=college).first_or_404().status
             print ("current sensor status: ", sensorStatus)
+            logger.debug("current sensor status: {0}".format(sensorStatus))
         except:
             sensorStatus = None
 
@@ -66,7 +73,6 @@ def verify_sensor_status(latestFifteenVals):
         if result == OFF:
             return OFF
             break
-
 
 
 
