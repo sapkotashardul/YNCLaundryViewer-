@@ -63,15 +63,21 @@ def get_latest_sensor_value(college, machineLabel):
 # datetime.timedelta.total_seconds(datetime.datetime.utcnow() - Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel='Washer_1', college='Elm').first().timestamp)
 
 
-def verify_sensor_status(latestFifteenVals):
-    for i in range(10):
-        result = process_sensor_values(latestFifteenVals[i:(i+5)])
-        if result == ON:
-            return ON
-            break
-        if result == OFF:
-            return OFF
-            break
+def verify_sensor_status(latestFiveVals):
+    result = process_sensor_values(latestFiveVals)
+    if result == ON:
+        return ON
+    if result == OFF:
+        return OFF
+
+    # for i in range(10):
+    #     result = process_sensor_values(latestFifteenVals[i:(i+5)])
+    #     if result == ON:
+    #         return ON
+    #         break
+    #     if result == OFF:
+    #         return OFF
+    #         break
 
 
 
