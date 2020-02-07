@@ -66,6 +66,7 @@ def view_index_test():
     elm_washer4, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
     elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
     elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
+    
 
     return render_template('index.html', elm_washer1=elm_washer1, elm_washer2=elm_washer2, elm_washer3=elm_washer3, elm_washer4=elm_washer4, elm_washer5=elm_washer5, elm_washer6=elm_washer6)
 
@@ -131,6 +132,51 @@ def elm_washer6_status():
         elm_washer6, elm_washer6_prev = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
         print("elm_washer6_status: ", elm_washer6)
     return elm_washer6
+
+@app.route('/cendana_washer1_status')
+def cendana_washer1_status():
+    cendana_washer1 = None
+    while (cendana_washer1 != None):
+        cendana_washer1, cendana_washer1_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_1')
+        print("cendana_washer1_status: ", cendana_washer1)
+    return cendana_washer1
+@app.route('/cendana_washer2_status')
+def cendana_washer2_status():
+    cendana_washer2 = None
+    while (cendana_washer2 != None):
+        cendana_washer2, cendana_washer2_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_2')
+        print("cendana_washer2_status: ", cendana_washer2)
+    return cendana_washer2
+@app.route('/cendana_washer3_status')
+def cendana_washer3_status():
+    cendana_washer3 = None
+    while (cendana_washer3 != None):
+        cendana_washer3, cendana_washer3_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
+        print("cendana_washer3_status: ", cendana_washer3)
+    return cendana_washer3
+
+@app.route('/cendana_washer4_status')
+def cendana_washer4_status():
+    cendana_washer4 = None
+    while (cendana_washer4 != None):
+        cendana_washer4, cendana_washer4_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
+        print("cendana_washer4_status: ", cendana_washer4)
+    return cendana_washer4
+@app.route('/cendana_washer5_status')
+def cendana_washer5_status():
+    cendana_washer5 = None
+    while (cendana_washer5 != None):
+        cendana_washer5, cendana_washer5_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
+        print("cendana_washer5_status: ", cendana_washer5)
+    return cendana_washer1
+@app.route('/cendana_washer6_status')
+def cendana_washer6_status():
+    cendana_washer6 = None
+    while (cendana_washer6 != None):
+        cendana_washer6, cendana_washer6_prev = get_latest_sensor_value(college='Cendana', machineLabel='Washer_6')
+        print("cendana_washer6_status: ", cendana_washer6)
+    return cendana_washer6
+
 
     # elm_washer2, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
     # elm_washer3, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')

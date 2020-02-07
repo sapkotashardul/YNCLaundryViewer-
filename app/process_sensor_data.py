@@ -23,7 +23,11 @@ def get_latest_sensor_value(college, machineLabel):
     latest_result = Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel=machineLabel, college=college).first()
     print ("latest sensor result: ", latest_result)
     # logger.debug("latest sensor result: {0}".format(latest_result))
-
+    SENSORVALS.append(latest_result.sensorValue)
+    result = SensorStatus.query.order_by(SensorStatus.timestamp.desc()).filter_by(machineLabel=machineLabel,
+                                                                                            college=college).first_or_404().status
+    return result
+'''
     if len(SENSORVALS) < READ_LIMIT:
         print ("SENSORVALS Count: ", len(SENSORVALS))
         # logger.debug("SENSORVALS Count: {0}".format(SENSORVALS))
@@ -58,7 +62,7 @@ def get_latest_sensor_value(college, machineLabel):
         SENSORVALS = []
 
         return result, sensorStatus
-
+'''
 
 # datetime.timedelta.total_seconds(datetime.datetime.utcnow() - Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel='Washer_1', college='Elm').first().timestamp)
 

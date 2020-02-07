@@ -178,6 +178,55 @@ body {
     margin-top: 20px;
 }
 
+
+.card-cendana-washer1{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
+.card-cendana-washer2{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
+.card-cendana-washer3{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
+.card-cendana-washer4{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
+.card-cendana-washer5{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
+.card-cendana-washer6{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #24495d;
+    margin-top: 20px;
+}
+
 .bg-primary {
     color: #fff;
     background-color: #044882;
@@ -366,7 +415,74 @@ body {
   <!--#376880-->
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <h2>Cendana</h2>
-  <p>Coming soon....</p>
+<div class="card_row">
+  <div class="card_column">
+    <div class="card-cendana-washer1">
+      <h3>Washer 1</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer1">{{cendana_washer1}}</span></p>
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card-cendana-washer2">
+      <h3>Washer 2</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer2">{{cendana_washer2}}</span></p>
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card-cendana-washer3">
+      <h3>Washer 3</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer3">{{cendana_washer3}}</span></p>
+    </div>
+  </div>
+
+     <div class="card_column">
+    <div class="card-cendana-washer4">
+      <h3>Washer 4</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer4">{{cendana_washer4}}</span></p>
+    </div>
+  </div>
+
+  <div class="card_column">
+    <div class="card-cendana-washer5">
+      <h3>Washer 5</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer5">{{cendana_washer5}}</span></p>
+    </div>
+  </div>
+
+   <div class="card_column">
+    <div class="card-cendana-washer6">
+      <h3>Washer 6</h3>
+      <p style="margin: 0 0 10px;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #a7a78d;
+    font-size: larger;"><span id="cendana_washer6">{{cendana_washer6}}</span></p>
+    </div>  </div>
+
+</div>
+
 </div>
 
 <script>
@@ -398,6 +514,24 @@ function openTab(tabName) {
    }, 60 * 1000) // make requests every minute
    window.setInterval(function(){
       $("#elm_washer6").load("/elm_washer6_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer1").load("/cendana_washer1_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer2").load("/cendana_washer2_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer3").load("/cendana_washer3_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer4").load("/cendana_washer4_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer5").load("/cendana_washer5_status");
+   }, 60 * 1000) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer6").load("/cendana_washer6_status");
    }, 60 * 1000) // make requests every minute
 </script>
 
@@ -431,6 +565,36 @@ if (document.getElementById("elm_washer6").textContent == "UNAVAILABLE") {
     document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#8c1421";
 } else if (document.getElementById("elm_washer6").textContent == "AVAILABLE") {
     document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#098009";
+}
+else if (document.getElementById("cendana_washer1").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer1").textContent == "AVAILABLE"){
+    document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("cendana_washer2").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer2").textContent == "AVAILABLE"){
+    document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("cendana_washer3").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer3").textContent == "AVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("cendana_washer4").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer4").textContent == "AVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("cendana_washer5").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer5")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer5").textContent == "AVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer5")[0].style.backgroundColor = "#098009";
+}
+if (document.getElementById("cendana_washer6").textContent == "UNAVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer6")[0].style.backgroundColor = "#8c1421";
+} else if (document.getElementById("cendana_washer6").textContent == "AVAILABLE") {
+    document.getElementsByClassName("card-cendana-washer6")[0].style.backgroundColor = "#098009";
 }
 </script>
 
