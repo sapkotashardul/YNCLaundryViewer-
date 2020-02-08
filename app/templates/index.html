@@ -559,33 +559,33 @@ window.setInterval(function(){
    }, timer_id) // make requests every minute
    window.setInterval(function(){
       $("#cendana_washer1").load("/cendana_washer1_status");
-      if (document.getElementById("cendana_washer1").textContent == "UNAVAILABLE") {
+      if (change_color("cendana_washer1") == 1) {
     document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer1").textContent == "AVAILABLE"){
+} else if (change_color("cendana_washer1") == 2) {
     document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#098009";
 };
    }, timer_id) // make requests every minute
    window.setInterval(function(){
       $("#cendana_washer2").load("/cendana_washer2_status");
-      if (document.getElementById("cendana_washer2").textContent == "UNAVAILABLE") {
+      if (change_color("cendana_washer2") == 1) {
     document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer2").textContent == "AVAILABLE"){
+} else if (change_color("cendana_washer2") == 2) {
     document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#098009";
 };
    }, timer_id) // make requests every minute
    window.setInterval(function(){
       $("#cendana_washer3").load("/cendana_washer3_status");
-      if (document.getElementById("cendana_washer3").textContent == "UNAVAILABLE") {
+      if (change_color("cendana_washer3") == 1) {
     document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer3").textContent == "AVAILABLE") {
+} else if (change_color("cendana_washer3") == 2) {
     document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#098009";
 };
    }, timer_id) // make requests every minute
    window.setInterval(function(){
       $("#cendana_washer4").load("/cendana_washer4_status");
-      if (document.getElementById("cendana_washer4").textContent == "UNAVAILABLE") {
+      if (change_color("cendana_washer4") == 1) {
     document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer4").textContent == "AVAILABLE") {
+} else if (change_color("cendana_washer4") == 2) {
     document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#098009";
 };
    }, timer_id) // make requests every minute
