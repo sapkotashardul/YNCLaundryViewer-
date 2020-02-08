@@ -1,6 +1,7 @@
 import app.constants as CONSTANTS
 from app import app, db
 from app.models import Sensor, SensorStatus
+from datetime import timezone, timedelta, datetime
 
 ON = CONSTANTS.ON
 OFF = CONSTANTS.OFF
@@ -16,17 +17,40 @@ def determine_sensor_status(value):
     # elif value > 800:
     else:
         return OFF
-
+result = 0
 
 def get_latest_sensor_value(college, machineLabel):
-    global SENSORVALS
+    global result
     latest_result = Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel=machineLabel, college=college).first()
     print ("latest sensor result: ", latest_result)
-    # logger.debug("latest sensor result: {0}".format(latest_result))
-    SENSORVALS.append(latest_result.sensorValue)
-    result = SensorStatus.query.order_by(SensorStatus.timestamp.desc()).filter_by(machineLabel=machineLabel,
-                                                                                            college=college).first_or_404().status
-    return result
+    stat = determine_sensor_status(latest_result.sensorValue)
+    print(stat)
+    #logger.debug("latest sensor result: {0}".format(latest_result))
+    try:
+        print ("current sensor status: ", result)
+        # logger.debug("current sensor status: {0}".format(sensorStatus))
+        college = latest_result.college
+        machineLabel = latest_result.machineLabel
+        timestamp = latest_result.timestamp
+        time_sg_complex = latest_result.timestamp + timedelta(hours=8)
+        time_sg = time_sg_complex.strftime("%I:%M:%p %d %b %Y ")
+        status = str(stat) + " since: "+ str(time_sg)
+        sensorData = SensorStatus(college=college, machineLabel=machineLabel, timestamp=timestamp, status=status)
+        db.session.add(sensorData)
+        db.session.commit()
+        result = SensorStatus.query.order_by(SensorStatus.timestamp.desc()).filter_by(machineLabel=machineLabel,
+                                                                                                college=college).first().status
+        #result = verify_sensor_status(SENSORVALS)
+        print ("result of processing sensor stats: ", result)
+        # logger.debug("result of processing sensor stats: {0}".format(result))
+    except Exception as e:
+        #sensorStatus = None
+        print(e)
+        pass
+    #SENSORVALS = []
+    return status
+#sensorStatus
+
 '''
     if len(SENSORVALS) < READ_LIMIT:
         print ("SENSORVALS Count: ", len(SENSORVALS))
@@ -62,8 +86,8 @@ def get_latest_sensor_value(college, machineLabel):
         SENSORVALS = []
 
         return result, sensorStatus
-'''
 
+'''
 # datetime.timedelta.total_seconds(datetime.datetime.utcnow() - Sensor.query.order_by(Sensor.timestamp.desc()).filter_by(machineLabel='Washer_1', college='Elm').first().timestamp)
 
 
@@ -94,8 +118,8 @@ def process_sensor_values(firstFiveVals):
         else:
             totalOff += 1
 
-    if totalOn == 5:
+    if totalOn == 1:
         return ON
 
-    if totalOff == 5:
+    if totalOff == 1:
         return OFF

@@ -406,15 +406,14 @@ body {
     color: #a7a78d;
     font-size: larger;"><span id="elm_washer6">{{elm_washer6}}</span></p>
     </div>  </div>
-
 </div>
 
 </div>
 
-<div id="b3" class="containerTab" style="display:none;background:#224758">
-  <!--#376880-->
+<div id="b3" class="containerTab" style="display:none;background:#224758"> <!--#376880-->
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <h2>Cendana</h2>
+
 <div class="card_row">
   <div class="card_column">
     <div class="card-cendana-washer1">
@@ -497,105 +496,109 @@ function openTab(tabName) {
 </script>
 
 <script type="text/javascript">
-   window.setInterval(function(){
+function change_color(char1) {
+  if (document.getElementById(char1).textContent.charAt(0) == "U") {return 1}
+  else if (document.getElementById(char1).textContent.charAt(0) == "A") {return 2}
+  else {return 3};   // This function checks for the starting letter of the washer state and reports back accordingly 1 (UNAVAILABLE),2(AVAILABLE), or 3 (Error).
+}
+window.setInterval(function(){
       $("#elm_washer1").load("/elm_washer1_status");
-   }, 60 * 1000) // make requests every minute
+   if (change_color("elm_washer1") == 1) {
+    document.getElementsByClassName("card-elm-washer1")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer1") == 2) {
+    document.getElementsByClassName("card-elm-washer1")[0].style.backgroundColor = "#098009";
+};
+}, 5 * 100) // make requests every minute
    window.setInterval(function(){
       $("#elm_washer2").load("/elm_washer2_status");
-   }, 60 * 1000) // make requests every minute
+      if (change_color("elm_washer2") == 1) {
+    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer2") == 2) {
+    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#098009";
+};
+   }, 5 * 100) // make requests every minute
+   
    window.setInterval(function(){
       $("#elm_washer3").load("/elm_washer3_status");
-   }, 60 * 1000) // make requests every minute
+      if (change_color("elm_washer3") == 1) {
+    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer3") == 2) {
+    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#098009";
+};
+   }, 5 * 100) // make requests every minute
+
    window.setInterval(function(){
       $("#elm_washer4").load("/elm_washer4_status");
-   }, 60 * 1000) // make requests every minute
+      if (change_color("elm_washer4") == 1) {
+    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer4") == 2) {
+    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#098009";
+};
+   }, 5 * 100) // make requests every minute
    window.setInterval(function(){
       $("#elm_washer5").load("/elm_washer5_status");
-   }, 60 * 1000) // make requests every minute
+      if (change_color("elm_washer5") == 1) {
+    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer5") == 2) {
+    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#098009";
+};
+   }, 5 * 100) // make requests every minute
    window.setInterval(function(){
       $("#elm_washer6").load("/elm_washer6_status");
-   }, 60 * 1000) // make requests every minute
+      if (change_color("elm_washer6") == 1) {
+    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#8c1421";
+} else if (change_color("elm_washer6") == 2) {
+    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#098009";
+};
+   }, 5 * 100) // make requests every minute
    window.setInterval(function(){
       $("#cendana_washer1").load("/cendana_washer1_status");
-   }, 60 * 1000) // make requests every minute
-   window.setInterval(function(){
-      $("#cendana_washer2").load("/cendana_washer2_status");
-   }, 60 * 1000) // make requests every minute
-   window.setInterval(function(){
-      $("#cendana_washer3").load("/cendana_washer3_status");
-   }, 60 * 1000) // make requests every minute
-   window.setInterval(function(){
-      $("#cendana_washer4").load("/cendana_washer4_status");
-   }, 60 * 1000) // make requests every minute
-   window.setInterval(function(){
-      $("#cendana_washer5").load("/cendana_washer5_status");
-   }, 60 * 1000) // make requests every minute
-   window.setInterval(function(){
-      $("#cendana_washer6").load("/cendana_washer6_status");
-   }, 60 * 1000) // make requests every minute
-</script>
-
-<script>
-if (document.getElementById("elm_washer1").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer1")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer1").textContent == "AVAILABLE"){
-    document.getElementsByClassName("card-elm-washer1")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("elm_washer2").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer2").textContent == "AVAILABLE"){
-    document.getElementsByClassName("card-elm-washer2")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("elm_washer3").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer3").textContent == "AVAILABLE") {
-    document.getElementsByClassName("card-elm-washer3")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("elm_washer4").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer4").textContent == "AVAILABLE") {
-    document.getElementsByClassName("card-elm-washer4")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("elm_washer5").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer5").textContent == "AVAILABLE") {
-    document.getElementsByClassName("card-elm-washer5")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("elm_washer6").textContent == "UNAVAILABLE") {
-    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("elm_washer6").textContent == "AVAILABLE") {
-    document.getElementsByClassName("card-elm-washer6")[0].style.backgroundColor = "#098009";
-}
-else if (document.getElementById("cendana_washer1").textContent == "UNAVAILABLE") {
+      if (document.getElementById("cendana_washer1").textContent == "UNAVAILABLE") {
     document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#8c1421";
 } else if (document.getElementById("cendana_washer1").textContent == "AVAILABLE"){
     document.getElementsByClassName("card-cendana-washer1")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("cendana_washer2").textContent == "UNAVAILABLE") {
+};
+   }, 5 * 100) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer2").load("/cendana_washer2_status");
+      if (document.getElementById("cendana_washer2").textContent == "UNAVAILABLE") {
     document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#8c1421";
 } else if (document.getElementById("cendana_washer2").textContent == "AVAILABLE"){
     document.getElementsByClassName("card-cendana-washer2")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("cendana_washer3").textContent == "UNAVAILABLE") {
+};
+   }, 5 * 100) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer3").load("/cendana_washer3_status");
+      if (document.getElementById("cendana_washer3").textContent == "UNAVAILABLE") {
     document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#8c1421";
 } else if (document.getElementById("cendana_washer3").textContent == "AVAILABLE") {
     document.getElementsByClassName("card-cendana-washer3")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("cendana_washer4").textContent == "UNAVAILABLE") {
+};
+   }, 5 * 100) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer4").load("/cendana_washer4_status");
+      if (document.getElementById("cendana_washer4").textContent == "UNAVAILABLE") {
     document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#8c1421";
 } else if (document.getElementById("cendana_washer4").textContent == "AVAILABLE") {
     document.getElementsByClassName("card-cendana-washer4")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("cendana_washer5").textContent == "UNAVAILABLE") {
+};
+   }, 5 * 100) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer5").load("/cendana_washer5_status");
+      if (change_color("cendana_washer5") == 1) {
     document.getElementsByClassName("card-cendana-washer5")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer5").textContent == "AVAILABLE") {
+} else if (change_color("cendana_washer5") == 2) {
     document.getElementsByClassName("card-cendana-washer5")[0].style.backgroundColor = "#098009";
-}
-if (document.getElementById("cendana_washer6").textContent == "UNAVAILABLE") {
+};
+   }, 5 * 100) // make requests every minute
+   window.setInterval(function(){
+      $("#cendana_washer6").load("/cendana_washer6_status");
+      if (change_color("cendana_washer6") == 1) {
     document.getElementsByClassName("card-cendana-washer6")[0].style.backgroundColor = "#8c1421";
-} else if (document.getElementById("cendana_washer6").textContent == "AVAILABLE") {
+} else if (change_color("cendana_washer6") == 2) {
     document.getElementsByClassName("card-cendana-washer6")[0].style.backgroundColor = "#098009";
-}
+};
+   }, 5 * 100) // make requests every minute
 </script>
 
 
