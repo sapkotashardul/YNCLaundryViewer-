@@ -505,7 +505,7 @@ function change_color(char1) {
   else {return 3};   // This function checks for the starting letter of the washer state and reports back accordingly 1 (UNAVAILABLE),2(AVAILABLE), or 3 (Error).
 };
 
-var timer_id = 5000; //milisecond
+var timer_id = 2500; //milisecond
 
 window.setInterval(function(){
       $("#elm_washer1").load("/elm_washer1_status");
