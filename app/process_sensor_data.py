@@ -33,7 +33,7 @@ def get_latest_sensor_value(college, machineLabel):
         machineLabel = latest_result.machineLabel
         timestamp = latest_result.timestamp
         time_sg_complex = latest_result.timestamp + timedelta(hours=8)
-        time_sg = time_sg_complex.strftime("%I:%M:%p %d %b %Y ")
+        time_sg = time_sg_complex.strftime("%I:%M %p, %d %b %Y ")
         status = str(stat) + " since: "+ str(time_sg)
         sensorData = SensorStatus(college=college, machineLabel=machineLabel, timestamp=timestamp, status=status)
         db.session.add(sensorData)
