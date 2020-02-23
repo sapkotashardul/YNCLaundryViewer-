@@ -1,3 +1,4 @@
+from app import app
 from datetime import datetime, timedelta, timezone
 import json
 

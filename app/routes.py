@@ -1,5 +1,7 @@
+from app import app
 from flask import request, render_template, jsonify
 from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
+
 
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
