@@ -1,5 +1,5 @@
 from app import app
-from flask import request, render_template, jsonify
+from flask import request, render_template, jsonify, redirect
 from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 #from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 
