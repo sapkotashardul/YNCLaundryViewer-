@@ -1,4 +1,4 @@
-from app import app
+#from app import app
 from datetime import datetime, timedelta, timezone
 import json
 
@@ -63,5 +63,5 @@ def get_latest_sensor_value(college, machineLabel):
         pass
     return s
 #sanity check
-update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
-print(get_latest_sensor_value("Saga","Washer_6"))
+#update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+#print(get_latest_sensor_value("Saga","Washer_6"))

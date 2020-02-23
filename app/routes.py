@@ -1,13 +1,14 @@
 from app import app
 from flask import request, render_template, jsonify
-from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
-
+from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
+#from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
-print(get_latest_sensor_value("Saga","Washer_6"))
+#update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+#print(get_latest_sensor_value("Saga","Washer_6"))
+#print(get_latest_sensor_value(college='Elm', machineLabel='Washer_1'))
 @app.route('/index', methods=['GET','POST'])
 def index():
     #app.logger.info('successfully posted')
