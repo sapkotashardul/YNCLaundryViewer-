@@ -31,7 +31,7 @@ def view_index_test():
 
 @app.route('/')
 def hello():
-    return redirect("https://laundry.chuayunda.com/index", code=302)
+    return redirect('/index')
 #def view_index():
     # queried_value = Sensor.query.order_by(Sensor.timestamp.desc()).first()
     # value = queried_value.sensorValue
