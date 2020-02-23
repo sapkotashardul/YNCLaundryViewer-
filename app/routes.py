@@ -1,79 +1,29 @@
 from flask import request, render_template, jsonify
-from app import app, db
-from app.models import Sensor
-from app.process_sensor_data import get_latest_sensor_value
-import app.constants as CONSTANTS
+from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, update_status_hdd, db, datetime
 
-ON = CONSTANTS.ON
-OFF = CONSTANTS.OFF
-
-
-# @app.route('/index/<uuid>', methods=['GET','POST'])
-# def index(uuid):
-#     content = 0
-#     if request.method == 'POST':
-#         app.logger.info('successfully posted')
-#         content = request.get_json()
-#         # data_str = content.decode('utf-8')
-#         # json_data = simplejson.loads(data_str, strict=False)
-#         #sensorValue = content.get("sensorValue")
-#         print "CONTENT ", content
-#         #print "SENSORVAL ", sensorValue
-#         return "STATUS: SUCCESS "
-#     posted_data = content
-#     if request.method == 'GET':
-#         print "POSTED CONTENT ", posted_data
-#         return render_template('index.html', content=posted_data)
-
-# @app.route('/index', methods=['GET'])
-# def view_index():
-#     print "Get Content:", contents
-
-## Need to update and migrate the database.... because of the changes
-
-sensorStatus = (1,"college","machine")
-
+ON = "AVAILABLE"
+OFF = "UNAVAILABLE"
+ERROR = "ERROR"
 @app.route('/index', methods=['GET','POST'])
 def index():
-    app.logger.info('successfully posted')
-    print("making a post request....")
+    #app.logger.info('successfully posted')
     # logger.debug("making a post request....")
     content = request.get_json()
     if content:
         print(content)
         # logger.debug(content)
-        global sensorStatus
         value = int(content.get("sensorValue"))
         college = str(content.get("college"))
         machineLabel = str(content.get("machineLabel"))
-        sensorStatus = Sensor(sensorValue=value, college=college, machineLabel=machineLabel)
-        db.session.add(sensorStatus)
-        db.session.commit()
-        #print(get_latest_sensor_value(college=college, machineLabel=machineLabel))
-        return "STORE SUCCESS "
+        update_status_ram(db, college, machineLabel, value, datetime.datetime.now())
+        update_status_hdd()
+        return "STORE SUCCESS"
     return render_template('index.html', content=content)
-
-
 
 @app.route('/test')
 def view_index_test():
-    queried_value = Sensor.query.order_by(Sensor.timestamp.desc()).first()
-    value = queried_value.sensorValue
-    print("DB VAL ", value)
-    elm_washer1 = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
-    elm_washer2 = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
-    elm_washer3 = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
-    elm_washer4 = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
-    elm_washer5 = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
-    elm_washer6 = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
-    cendana_washer1 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_1')
-    cendana_washer2 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_2')
-    cendana_washer3 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
-    cendana_washer4 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
-    cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
-    cendana_washer6 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_6')
-
-    return render_template('index.html', elm_washer1=elm_washer1, elm_washer2=elm_washer2, elm_washer3=elm_washer3, elm_washer4=elm_washer4, elm_washer5=elm_washer5, elm_washer6=elm_washer6, cendana_washer1=cendana_washer1, cendana_washer2=cendana_washer2, cendana_washer3=cendana_washer3, cendana_washer4=cendana_washer4, cendana_washer5=cendana_washer5, cendana_washer6=cendana_washer6)
+    #return render_template('index.html', elm_washer1=elm_washer1, elm_washer2=elm_washer2, elm_washer3=elm_washer3, elm_washer4=elm_washer4, elm_washer5=elm_washer5, elm_washer6=elm_washer6, cendana_washer1=cendana_washer1, cendana_washer2=cendana_washer2, cendana_washer3=cendana_washer3, cendana_washer4=cendana_washer4, cendana_washer5=cendana_washer5, cendana_washer6=cendana_washer6)
+    pass
 
 @app.route('/')
 def view_index():
@@ -86,9 +36,7 @@ def view_index():
     # elm_washer4, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
     # elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
     # elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
-
     return render_template('coming_soon.html')
-
 
 @app.route('/elm_washer1_status')
 def elm_washer1_status():
