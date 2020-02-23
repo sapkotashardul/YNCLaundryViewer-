@@ -12,8 +12,10 @@ class Sensor(db.Model):
     # password_hash = db.Column(db.String(128))
 
     def __repr__(self):
-        return '<Value {}>'.format(self.sensorValue)
-
+        template = '{0.sensorValue} {0.college} {0.machineLabel} {0.timestamp}'
+        return template.format(self)
+#https://stackoverflow.com/questions/39883950/str-returned-non-string-type-tuple
+#'<Value {}>'.format(self.sensorValue)
 class SensorStatus(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     college = db.Column(db.String, index=True)
