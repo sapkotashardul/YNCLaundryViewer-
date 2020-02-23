@@ -7,27 +7,36 @@ ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
 
+#constants
+t = datetime.strptime("Sunday, 11:56:57 PM, 23-Feb-2001", '%A, %I:%M:%S %p, %d-%b-%Y')
+s = "yea"
+
+path = "./status_db.json"
 with open(path) as db: 
     db = json.load(db)
 
-#Searches for the laundry state from the json file
 def find_latest(db, college, washer):
     #state is "AVAILABLE OR UNAVAILABLE OR ERROR"
-    s = "yea"
-    t = datetime.strptime('09/19/18 13:55:26', '%m/%d/%y %H:%M:%S')
+    global t, s
     for state in db[college][washer]:
-        if datetime.strptime(db[college][washer][state], "%m/%d/%y %H:%M:%S") >= t:
-            t = datetime.strptime(db[college][washer][state], "%m/%d/%y %H:%M:%S")
+        if datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y') >= t:
+            #t = datetime.strptime(db[college][washer][state], '%I:%M:%S %p %d/%H/%Y')
+            time = db[college][washer][state]
             s = state
-    find_latest.time = t
+        else:
+            pass
     find_latest.status = s
+    find_latest.time = time
 
 def update_status_ram(db, college, washer, status, time):
     db[college][washer][status] = time
-    print(db)
+    json_data = json.dumps(db)
+
+#Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
     with open(filename,'w') as f: 
         json.dump(db, f, indent=4) 
+
 #examples of the above commands
 #update_status_ram(db,"Cendana", "Washer 1", "AVAILABLE", "8800")
 #find_status(db,'Cendana','Washer 1')
@@ -42,16 +51,17 @@ def determine_sensor_status(value):
         return OFF
     else:
         return ERROR
-result = 0
 
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
-    global result
     try:
-        time_sg_complex = find_latest.time + timedelta(hours=8)
-        time_sg = time_sg_complex.strftime("%I:%M %p, %d %b %Y ")
-        status = str(find_latest.status) + " since: "+ str(time_sg)
+        find_latest(db,college,machineLabel)
+        status = find_latest.status + "\n" + find_latest.time
     except Exception as e:
         print(e)
         pass
     return status
+
+update_status_ram(db,"Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+update_status_hdd()
+print(get_latest_sensor_value("Saga","Washer_6"))
