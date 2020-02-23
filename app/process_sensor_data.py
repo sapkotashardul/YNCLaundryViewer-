@@ -6,6 +6,7 @@ path = "./status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
+
 with open(path) as db: 
     db = json.load(db)
 
