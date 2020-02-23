@@ -19,14 +19,11 @@ def find_latest(db, college, washer):
     for state in db[college][washer]:
         if datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y') >= t:
             #t = datetime.strptime(db[college][washer][state], '%I:%M:%S %p %d/%H/%Y')
-            time = db[college][washer][state]
+            t = datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y')
             s = state
-            print(time)
-        else:
-            pass
+            time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
     find_latest.status = s
     find_latest.time = time
-
 
 #Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
@@ -35,7 +32,7 @@ def update_status_hdd(filename=path):
         json.dump(db, f, indent=4)
 
 
-def update_status_ram(tempjson, college, washer, status, time):
+def update_status_ram(college, washer, status, time):
     global db
     db[college][washer][status] = time
     #json_data = json.dumps(tempjson)
@@ -54,14 +51,16 @@ def determine_sensor_status(value):
 
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
+    global s
     with open(path) as db: 
         db = json.load(db)
     try:
         find_latest(db,college,machineLabel)
-        status = find_latest.status + "\n" + find_latest.time
+        s = find_latest.status + "\n" + find_latest.time
     except Exception as e:
         print(e)
         pass
-    return status
-update_status_ram(db,"Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+    return s
+#sanity check
+update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
 print(get_latest_sensor_value("Saga","Washer_6"))

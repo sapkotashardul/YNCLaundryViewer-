@@ -1,9 +1,11 @@
 from flask import request, render_template, jsonify
-from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, update_status_hdd, db, datetime
+from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
+update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+print(get_latest_sensor_value("Saga","Washer_6"))
 @app.route('/index', methods=['GET','POST'])
 def index():
     #app.logger.info('successfully posted')
@@ -15,8 +17,7 @@ def index():
         value = int(content.get("sensorValue"))
         college = str(content.get("college"))
         machineLabel = str(content.get("machineLabel"))
-        update_status_ram(db, college, machineLabel, value, datetime.datetime.now())
-        update_status_hdd()
+        update_status_ram(college, machineLabel, value, datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
         return "STORE SUCCESS"
     return render_template('index.html', content=content)
 
