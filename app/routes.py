@@ -30,7 +30,9 @@ def view_index_test():
     pass
 
 @app.route('/')
-def view_index():
+def hello():
+    return redirect("https://laundry.chuayunda.com/index", code=302)
+#def view_index():
     # queried_value = Sensor.query.order_by(Sensor.timestamp.desc()).first()
     # value = queried_value.sensorValue
     # print("DB VAL ", value)
@@ -40,7 +42,7 @@ def view_index():
     # elm_washer4, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
     # elm_washer5, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
     # elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
-    return render_template('coming_soon.html')
+#    return render_template('coming_soon.html')
 
 @app.route('/elm_washer1_status')
 def elm_washer1_status():
