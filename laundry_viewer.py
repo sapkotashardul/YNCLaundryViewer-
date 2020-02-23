@@ -1,6 +1,6 @@
 # Dependency: pip install flask requests
 from flask import Flask, request
-from app import routes, models
+from app import routes
 
 # Define Flask webserver
 app = Flask(__name__)
