@@ -3,11 +3,10 @@ from datetime import datetime, timedelta, timezone
 import json
 
 #constants
-path = "./status_db.json"
+path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-path = "./status_db.json"
 with open(path) as db: 
     db = json.load(db)
 #constants

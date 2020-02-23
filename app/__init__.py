@@ -3,4 +3,4 @@ from flask import Flask, request
 # Define Flask webserver
 app = Flask(__name__)
 
-from app import routes
+from app import routes, laundry_viewer
