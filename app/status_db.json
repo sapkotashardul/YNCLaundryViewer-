@@ -26,13 +26,8 @@
             "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
         },
         "Washer_6": {
-<<<<<<< HEAD
-            "AVAILABLE": "Monday, 11:15:16 AM, 24-Feb-2020",
-            "UNAVAILABLE": "Monday, 11:23:46 AM, 24-Feb-2020",
-=======
             "AVAILABLE": "Monday, 05:13:06 PM, 24-Feb-2020",
             "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
->>>>>>> acb7a2ab8f7b14c0b8bd0a83dc34c58daf3baf4b
             "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
         }
     },
