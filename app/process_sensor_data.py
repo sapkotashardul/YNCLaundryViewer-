@@ -32,6 +32,7 @@ def update_status_hdd(filename=path):
 
 
 def update_status_ram(college, washer, status, time):
+    db = "lel"
     with open(path) as db: 
         db = json.load(db)
     db[college][washer][status] = time
