@@ -24,7 +24,7 @@ def find_latest(db, college, washer):
             t = datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y')
             s = state
             time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
-    return(s + time)
+    return s + time
     #find_latest.status = s
     #find_latest.time = time
 
@@ -173,4 +173,4 @@ def get_latest_sensor_value(college, machineLabel):
 #update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
 #print(get_latest_sensor_value("Saga","Washer_6"))
 
-print(get_latest_sensor_value("Elm","Washer_6"))
+print(repr(get_latest_sensor_value("Elm","Washer_6")))
