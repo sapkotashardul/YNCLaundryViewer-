@@ -152,7 +152,7 @@ college_washer_set = {
 def get_latest_sensor_value(college, machineLabel):
     #with open(path) as db: 
     #    college_washer_set[college][machineLabel] = json.load(db)
-    global s
+    global s, db
     try:
         #print(college_washer_set[college][machineLabel])
         find_latest(db,college,machineLabel)
