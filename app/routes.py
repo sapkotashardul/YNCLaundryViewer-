@@ -44,18 +44,18 @@ def hello():
     # elm_washer6, _ = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
 #    return render_template('coming_soon.html')
 
-@app.route('/elm_washer1_status')
-def elm_washer1_status():
-    elm_washer1 = None
-    elm_washer1 = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
-    #print("elm_washer1_status: ", elm_washer1)
-    return elm_washer1
+#@app.route('/elm_washer1_status')
+#def elm_washer1_status():
+#    elm_washer1 = None
+#    elm_washer1 = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
+#    #print("elm_washer1_status: ", elm_washer1)
+#    return elm_washer1
 #try:
 #    elm_washer1_status()
 #except:
 #    pass
 
-@app.route('/elm_washer2_status')
+#@app.route('/elm_washer2_status')
 #def elm_washer2_status():
 #    elm_washer2 = None
 #    elm_washer2 = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
@@ -66,7 +66,7 @@ def elm_washer1_status():
 #except:
 #    pass
 
-@app.route('/elm_washer3_status')
+#@app.route('/elm_washer3_status')
 #def elm_washer3_status():
 #    elm_washer3 = None
 #    elm_washer3 = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
@@ -76,7 +76,7 @@ def elm_washer1_status():
 #    elm_washer3_status()
 #except:
 #    pass
-@app.route('/elm_washer4_status')
+#@app.route('/elm_washer4_status')
 #def elm_washer4_status():
 #    elm_washer4 = None
 #    elm_washer4 = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
@@ -87,7 +87,7 @@ def elm_washer1_status():
 #except:
 #    pass
 
-@app.route('/elm_washer5_status')
+#@app.route('/elm_washer5_status')
 #def elm_washer5_status():
 #    elm_washer5 = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
 #    #print("elm_washer5_status: ", elm_washer5)
@@ -97,7 +97,7 @@ def elm_washer1_status():
 #except:
 #    pass
 
-@app.route('/elm_washer6_status')
+#@app.route('/elm_washer6_status')
 #def elm_washer6_status():
 #    elm_washer6 = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
 #    #print("elm_washer6_status: ", elm_washer6)
@@ -107,7 +107,7 @@ def elm_washer1_status():
 #except:
 #    pass
 
-@app.route('/cendana_washer1_status')
+#@app.route('/cendana_washer1_status')
 #def cendana_washer1_status():
 #    cendana_washer1 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_1')
 #    print("Cednana_washer1_status: ", cendana_washer1)
@@ -117,7 +117,7 @@ def elm_washer1_status():
 #except:
 #    pass
 
-@app.route('/cendana_washer2_status')
+#@app.route('/cendana_washer2_status')
 #def cendana_washer2_status():
 #    cendana_washer2 = None
 #    cendana_washer2 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_2')
