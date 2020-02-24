@@ -110,7 +110,7 @@ except:
 @app.route('/cendana_washer1_status')
 def cendana_washer1_status():
     cendana_washer1 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_1')
-    #print("Cednana_washer1_status: ", cendana_washer1)
+    print("Cednana_washer1_status: ", cendana_washer1)
     return cendana_washer1
 try:
     cendana_washer1_status()
@@ -121,7 +121,7 @@ except:
 def cendana_washer2_status():
     cendana_washer2 = None
     cendana_washer2 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_2')
-    #print("cendana_washer2_status: ", cendana_washer2)
+    print("cendana_washer2_status: ", cendana_washer2)
     return cendana_washer2
 try:
     cendana_washer2_status()
@@ -132,7 +132,7 @@ except:
 def cendana_washer3_status():
     cendana_washer3 = None
     cendana_washer3 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
-    #print("cendana_washer3_status: ", cendana_washer3)
+    print("cendana_washer3_status: ", cendana_washer3)
     return cendana_washer3
 try:
     cendana_washer3_status()
@@ -143,7 +143,7 @@ except:
 def cendana_washer4_status():
     cendana_washer4 = None
     cendana_washer4 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
-    #print("cendana_washer4_status: ", cendana_washer4)
+    print("cendana_washer4_status: ", cendana_washer4)
     return cendana_washer4
 try:
     cendana_washer4_status()
@@ -154,7 +154,7 @@ except:
 def cendana_washer5_status():
     cendana_washer5 = None
     cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
-    #print("cendana_washer5_status: ", cendana_washer5)
+    print("cendana_washer5_status: ", cendana_washer5)
     return cendana_washer5
 try:
     cendana_washer5_status()
@@ -163,8 +163,9 @@ except:
 
 @app.route('/cendana_washer6_status')
 def cendana_washer6_status():
-    cendana_washer6 = "hmmm"
+    cendana_washer6 = None
     cendana_washer6 = get_latest_sensor_value('Cendana', 'Washer_6')
+    print("cendana_washer6_status: ", cendana_washer6)
     return cendana_washer6
 try:
     cendana_washer6_status()

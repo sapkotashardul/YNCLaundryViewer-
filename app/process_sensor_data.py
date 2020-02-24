@@ -48,7 +48,7 @@ def determine_sensor_status(value):
     if value < 300:
         return ON
     # elif value > 800:
-    elif value >= 300 or value <= 1100:
+    elif value >= 300 and value <= 1100:
         return OFF
     else:
         return ERROR
