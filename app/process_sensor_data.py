@@ -32,6 +32,7 @@ def update_status_hdd(filename=path):
 
 
 def update_status_ram(college, washer, status, time):
+    global db
     db[college][washer][status] = time
     #json_data = json.dumps(tempjson)
     update_status_hdd()
