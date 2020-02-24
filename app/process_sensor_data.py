@@ -9,14 +9,15 @@ ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
 #with automatically closes files. So try without with.
-#with open(path, "r+") as db: 
-#    db = json.load(db)
-db = open(path, "r+")
-db = json.load(db)
+
+#db = open(path, "r+")
+#db = json.load(db)
 #constants
 
 def find_latest(db, college, washer):
     #state is "AVAILABLE OR UNAVAILABLE OR ERROR"
+    with open(path, "r+") as db: 
+        db = json.load(db)
     t = datetime.strptime("Sunday, 11:56:57 PM, 23-Feb-2001", '%A, %I:%M:%S %p, %d-%b-%Y')
     s = "yea"
     for state in db[college][washer]:
@@ -35,7 +36,9 @@ def update_status_hdd(filename=path):
 
 
 def update_status_ram(college, washer, status, time):
-    global db
+    #global db
+    with open(path, "r+") as db: 
+        db = json.load(db)
     db[college][washer][status] = time
     #json_data = json.dumps(tempjson)
     update_status_hdd()
@@ -155,6 +158,8 @@ def get_latest_sensor_value(college, machineLabel):
     #with open(path) as db: 
     #    college_washer_set[college][machineLabel] = json.load(db)
     ss = ""
+    with open(path, "r+") as db: 
+        db = json.load(db)
     try:
         #print(college_washer_set[college][machineLabel])
         find_latest(db,college,machineLabel)
