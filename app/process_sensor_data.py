@@ -8,7 +8,7 @@ path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-with open(path) as db: 
+with open(path, 'w+') as db: 
     db = json.load(db)
 #constants
 
@@ -27,7 +27,7 @@ def find_latest(db, college, washer):
 
 #Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
-    with open(filename,'w') as f: 
+    with open(filename,'w+') as f: 
         json.dump(db, f, indent=4)
     f.close()
 
