@@ -29,6 +29,7 @@ def find_latest(db, college, washer):
 def update_status_hdd(filename=path):
     with open(filename,'w') as f: 
         json.dump(db, f, indent=4)
+    f.close()
 
 
 def update_status_ram(college, washer, status, time):
@@ -36,8 +37,8 @@ def update_status_ram(college, washer, status, time):
     db[college][washer][status] = time
     #json_data = json.dumps(tempjson)
     update_status_hdd()
-    with open(path) as db: 
-        db = json.load(db)
+    #with open(path) as db: 
+    #    db = json.load(db)
 
 def determine_sensor_status(value):
     if value < 300:
