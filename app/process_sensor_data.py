@@ -150,12 +150,12 @@ college_washer_set = {
 
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
-    with open(path) as db: 
-        college_washer_set[college][machineLabel] = json.load(db)
+    #with open(path) as db: 
+    #    college_washer_set[college][machineLabel] = json.load(db)
     global s
     try:
         print(college_washer_set[college][machineLabel])
-        find_latest(college_washer_set[college][machineLabel],college,machineLabel)
+        find_latest(db,college,machineLabel)
         #Adding sleep here makes it worse, I think it's becaue of the async funcion of javascript.
         #time.sleep(1)
         s = find_latest.status + "\n" + find_latest.time
