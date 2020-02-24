@@ -1,7 +1,7 @@
 #from app import app
 from datetime import datetime, timedelta, timezone
 import json
-
+import time
 #constants
 path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
@@ -51,11 +51,12 @@ def determine_sensor_status(value):
 
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
+    with open(path) as db: 
+        db = json.load(db)
     global s
-    #with open(path) as db: 
-    #    db = json.load(db)
     try:
         find_latest(db,college,machineLabel)
+        time.sleep(1)
         s = find_latest.status + "\n" + find_latest.time
         return s
     except Exception as e:
