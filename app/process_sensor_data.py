@@ -8,8 +8,11 @@ path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-with open(path, "r") as db: 
-    db = json.load(db)
+#with automatically closes files. So try without with.
+#with open(path, "r+") as db: 
+#    db = json.load(db)
+db = open(path, "r+")
+db = json.load(db)
 #constants
 
 def find_latest(db, college, washer):
@@ -29,7 +32,6 @@ def find_latest(db, college, washer):
 def update_status_hdd(filename=path):
     with open(filename,'w+') as f: 
         json.dump(db, f, indent=4)
-    f.close()
 
 
 def update_status_ram(college, washer, status, time):
