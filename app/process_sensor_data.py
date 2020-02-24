@@ -24,7 +24,7 @@ def find_latest(db, college, washer):
             t = datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y')
             s = state
             time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
-    return(s + t)
+    return(s + time)
     #find_latest.status = s
     #find_latest.time = time
 
