@@ -153,18 +153,17 @@ college_washer_set = {
 def get_latest_sensor_value(college, machineLabel):
     #with open(path) as db: 
     #    college_washer_set[college][machineLabel] = json.load(db)
-    global s, db
+    ss = ""
     try:
         #print(college_washer_set[college][machineLabel])
         find_latest(db,college,machineLabel)
         #Adding sleep here makes it worse, I think it's becaue of the async funcion of javascript.
         #time.sleep(1)
-        s = find_latest.status + "\n" + find_latest.time
-        return s
+        ss = find_latest.status + "\n" + find_latest.time
+        return ss
     except Exception as e:
         print(e)
         pass
-    return s
 #sanity check
 #update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
 #print(get_latest_sensor_value("Saga","Washer_6"))
