@@ -20,7 +20,7 @@ def index():
         value = int(content.get("sensorValue"))
         college = str(content.get("college"))
         machineLabel = str(content.get("machineLabel"))
-        update_status_ram(college, machineLabel, value, datetime.strftime((datetime.now()+ timedelta(hours=8)), "%A, %I:%M:%S %p, %d-%b-%Y"))
+        update_status_ram(college, machineLabel, determine_sensor_status(value), datetime.strftime((datetime.now()+ timedelta(hours=8)), "%A, %I:%M:%S %p, %d-%b-%Y"))
         return "STORE SUCCESS"
     return render_template('index.html', content=content)
 
