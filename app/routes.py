@@ -48,7 +48,7 @@ def hello():
 def elm_washer1_status():
     elm_washer1 = None
     elm_washer1 = get_latest_sensor_value(college='Elm', machineLabel='Washer_1')
-    print("elm_washer1_status: ", elm_washer1)
+    #print("elm_washer1_status: ", elm_washer1)
     return elm_washer1
 try:
     elm_washer1_status()
@@ -59,7 +59,7 @@ except:
 def elm_washer2_status():
     elm_washer2 = None
     elm_washer2 = get_latest_sensor_value(college='Elm', machineLabel='Washer_2')
-    print("elm_washer2_status: ", elm_washer2)
+    #print("elm_washer2_status: ", elm_washer2)
     return elm_washer2
 try:
     elm_washer2_status()
@@ -70,7 +70,7 @@ except:
 def elm_washer3_status():
     elm_washer3 = None
     elm_washer3 = get_latest_sensor_value(college='Elm', machineLabel='Washer_3')
-    print("elm_washer3_status: ", elm_washer3)
+    #print("elm_washer3_status: ", elm_washer3)
     return elm_washer3
 try:
     elm_washer3_status()
@@ -80,7 +80,7 @@ except:
 def elm_washer4_status():
     elm_washer4 = None
     elm_washer4 = get_latest_sensor_value(college='Elm', machineLabel='Washer_4')
-    print("elm_washer4_status: ", elm_washer4)
+    #print("elm_washer4_status: ", elm_washer4)
     return elm_washer4
 try:
     elm_washer4_status()
@@ -90,7 +90,7 @@ except:
 @app.route('/elm_washer5_status')
 def elm_washer5_status():
     elm_washer5 = get_latest_sensor_value(college='Elm', machineLabel='Washer_5')
-    print("elm_washer5_status: ", elm_washer5)
+    #print("elm_washer5_status: ", elm_washer5)
     return elm_washer5
 try:
     elm_washer5_status()
@@ -100,7 +100,7 @@ except:
 @app.route('/elm_washer6_status')
 def elm_washer6_status():
     elm_washer6 = get_latest_sensor_value(college='Elm', machineLabel='Washer_6')
-    print("elm_washer6_status: ", elm_washer6)
+    #print("elm_washer6_status: ", elm_washer6)
     return elm_washer6
 try:
     elm_washer6_status()
@@ -110,7 +110,7 @@ except:
 @app.route('/cendana_washer1_status')
 def cendana_washer1_status():
     cendana_washer1 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_1')
-    print("Cednana_washer1_status: ", cendana_washer1)
+    #print("Cednana_washer1_status: ", cendana_washer1)
     return cendana_washer1
 try:
     cendana_washer1_status()
@@ -121,7 +121,7 @@ except:
 def cendana_washer2_status():
     cendana_washer2 = None
     cendana_washer2 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_2')
-    print("cendana_washer2_status: ", cendana_washer2)
+    #print("cendana_washer2_status: ", cendana_washer2)
     return cendana_washer2
 try:
     cendana_washer2_status()
@@ -132,7 +132,7 @@ except:
 def cendana_washer3_status():
     cendana_washer3 = None
     cendana_washer3 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
-    print("cendana_washer3_status: ", cendana_washer3)
+    #print("cendana_washer3_status: ", cendana_washer3)
     return cendana_washer3
 try:
     cendana_washer3_status()
@@ -143,7 +143,7 @@ except:
 def cendana_washer4_status():
     cendana_washer4 = None
     cendana_washer4 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
-    print("cendana_washer4_status: ", cendana_washer4)
+    #print("cendana_washer4_status: ", cendana_washer4)
     return cendana_washer4
 try:
     cendana_washer4_status()
@@ -154,7 +154,7 @@ except:
 def cendana_washer5_status():
     cendana_washer5 = None
     cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
-    print("cendana_washer5_status: ", cendana_washer5)
+    #print("cendana_washer5_status: ", cendana_washer5)
     return cendana_washer5
 
 @app.route('/cendana_washer6_status')
