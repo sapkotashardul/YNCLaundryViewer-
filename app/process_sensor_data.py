@@ -52,11 +52,12 @@ def determine_sensor_status(value):
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
     global s
-    with open(path) as db: 
-        db = json.load(db)
+    #with open(path) as db: 
+    #    db = json.load(db)
     try:
         find_latest(db,college,machineLabel)
         s = find_latest.status + "\n" + find_latest.time
+        return s
     except Exception as e:
         print(e)
         pass

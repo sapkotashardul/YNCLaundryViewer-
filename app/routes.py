@@ -1,6 +1,6 @@
 from app import app
 from flask import request, render_template, jsonify, redirect
-from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
+from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime, determine_sensor_status
 #from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 
 ON = "AVAILABLE"
@@ -20,7 +20,7 @@ def index():
         value = int(content.get("sensorValue"))
         college = str(content.get("college"))
         machineLabel = str(content.get("machineLabel"))
-        update_status_ram(college, machineLabel, value, datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
+        update_status_ram(college, machineLabel, value, datetime.strftime((datetime.now()+ timedelta(hours=8)), "%A, %I:%M:%S %p, %d-%b-%Y"))
         return "STORE SUCCESS"
     return render_template('index.html', content=content)
 
