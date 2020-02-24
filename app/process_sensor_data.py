@@ -33,7 +33,7 @@ def find_latest(db, college, washer):
 #Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
     with open(filename,'w+') as f:
-        json.dump(find_latest.db, f, indent=4)
+        json.dump(db, f, indent=4)
 
 
 def update_status_ram(college, washer, status, time):
