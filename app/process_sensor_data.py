@@ -8,8 +8,8 @@ path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-with open(path) as db: 
-    db = json.load(db)
+#with open(path) as db: 
+#    db = json.load(db)
 #constants
 
 def find_latest(db, college, washer):
@@ -32,6 +32,8 @@ def update_status_hdd(filename=path):
 
 
 def update_status_ram(college, washer, status, time):
+    with open(path) as db: 
+        db = json.load(db)
     db[college][washer][status] = time
     #json_data = json.dumps(tempjson)
     update_status_hdd()
@@ -150,6 +152,8 @@ college_washer_set = {
 def get_latest_sensor_value(college, machineLabel):
     #with open(path) as db: 
     #    college_washer_set[college][machineLabel] = json.load(db)
+    with open(path) as db: 
+        db = json.load(db)
     ss = ""
     try:
         #print(college_washer_set[college][machineLabel])
