@@ -1,6 +1,6 @@
 from app import app
 from flask import request, render_template, jsonify, redirect
-from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime, determine_sensor_status
+from app.process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime, determine_sensor_status, timedelta
 #from process_sensor_data import get_latest_sensor_value, find_latest, update_status_ram, datetime
 
 ON = "AVAILABLE"
