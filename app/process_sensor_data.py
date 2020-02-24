@@ -3,26 +3,26 @@ from datetime import datetime, timedelta, timezone
 import json
 import time
 #constants
-path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
+#path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
+path = "./status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
 with open(path) as db: 
     db = json.load(db)
 #constants
-t = datetime.strptime("Sunday, 11:56:57 PM, 23-Feb-2001", '%A, %I:%M:%S %p, %d-%b-%Y')
-s = "yea"
 
 def find_latest(db, college, washer):
     #state is "AVAILABLE OR UNAVAILABLE OR ERROR"
-    global t, s
+    t = datetime.strptime("Sunday, 11:56:57 PM, 23-Feb-2001", '%A, %I:%M:%S %p, %d-%b-%Y')
+    s = "yea"
     for state in db[college][washer]:
         if datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y') >= t:
             #t = datetime.strptime(db[college][washer][state], '%I:%M:%S %p %d/%H/%Y')
             t = datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y')
             s = state
             time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
-            print(time+"goof")
+            print(db)
     find_latest.status = s
     find_latest.time = time
 
@@ -167,3 +167,5 @@ def get_latest_sensor_value(college, machineLabel):
 #sanity check
 #update_status_ram("Saga", "Washer_6", "AVAILABLE", datetime.strftime(datetime.now(), "%A, %I:%M:%S %p, %d-%b-%Y"))
 #print(get_latest_sensor_value("Saga","Washer_6"))
+
+print(get_latest_sensor_value("Elm","Washer_6"))
