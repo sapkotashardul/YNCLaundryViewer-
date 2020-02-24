@@ -49,14 +49,114 @@ def determine_sensor_status(value):
     else:
         return ERROR
 
+college_washer_set = {
+    "Cendana": {
+        "Washer_1": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_2": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_3": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_4": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_5": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_6": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        }
+    },
+    "Elm": {
+        "Washer_1": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_2": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_3": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_4": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_5": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_6": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        }
+    },
+    "Saga": {
+        "Washer_1": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_2": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_3": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_4": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_5": {
+            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+        },
+        "Washer_6": {
+            "AVAILABLE": "Monday, 01:48:26 AM, 24-Feb-2020",
+            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "ERROR": "Monday, 01:13:53 AM, 24-Feb-2020"
+        }
+    }
+}
+
 #note, washer and machineLabel are the same things
 def get_latest_sensor_value(college, machineLabel):
     with open(path) as db: 
-        db = json.load(db)
+        college_washer_set[college][machineLabel] = json.load(db)
     global s
     try:
-        find_latest(db,college,machineLabel)
-        time.sleep(1)
+        find_latest(college_washer_set[college][machineLabel],college,machineLabel)
+        #Adding sleep here makes it worse, I think it's becaue of the async funcion of javascript.
+        #time.sleep(1)
         s = find_latest.status + "\n" + find_latest.time
         return s
     except Exception as e:
