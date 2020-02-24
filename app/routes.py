@@ -155,22 +155,24 @@ def cendana_washer5_status():
     cendana_washer5 = None
     cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
     #print("cendana_washer5_status: ", cendana_washer5)
-    #return cendana_washer5
-try:
-    cendana_washer5_status()
-except:
-    pass
+    return cendana_washer5
+    try:
+        cendana_washer5_status()
+    except Exception as e:
+        print(e)
+        pass
 
 @app.route('/cendana_washer6_status')
 def cendana_washer6_status():
-    cendana_washer6 = None
+    cendana_washer6 = "hmmm"
     cendana_washer6 = get_latest_sensor_value('Cendana', 'Washer_6')
-    print("cendana_washer6_status: ", cendana_washer6)
+    #print("cendana_washer6_status: ", cendana_washer6)
     return cendana_washer6
-#try:
-#    cendana_washer6_status()
-#except:
-#    pass
+    try:
+        cendana_washer6_status()
+    except Exception as e:
+        print(e)
+        pass
 
 #@app.route('/why')
 #def cendana
