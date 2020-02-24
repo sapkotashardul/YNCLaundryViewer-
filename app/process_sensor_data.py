@@ -28,11 +28,12 @@ def find_latest(db, college, washer):
             time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
     find_latest.status = s
     find_latest.time = time
+    find_latest.db = db
 
 #Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
-    with open(filename,'w+') as f: 
-        json.dump(db, f, indent=4)
+    with open(filename,'w+') as f:
+        json.dump(find_latest.db, f, indent=4)
 
 
 def update_status_ram(college, washer, status, time):
