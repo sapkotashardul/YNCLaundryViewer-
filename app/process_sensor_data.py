@@ -8,7 +8,7 @@ path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 ON = "AVAILABLE"
 OFF = "UNAVAILABLE"
 ERROR = "ERROR"
-with open(path, 'w+') as db: 
+with open(path, "r") as db: 
     db = json.load(db)
 #constants
 
