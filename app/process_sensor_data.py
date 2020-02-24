@@ -16,8 +16,6 @@ ERROR = "ERROR"
 
 def find_latest(db, college, washer):
     #state is "AVAILABLE OR UNAVAILABLE OR ERROR"
-    with open(path, "r+") as db: 
-        db = json.load(db)
     t = datetime.strptime("Sunday, 11:56:57 PM, 23-Feb-2001", '%A, %I:%M:%S %p, %d-%b-%Y')
     s = "yea"
     for state in db[college][washer]:
@@ -26,9 +24,9 @@ def find_latest(db, college, washer):
             t = datetime.strptime(db[college][washer][state], '%A, %I:%M:%S %p, %d-%b-%Y')
             s = state
             time = datetime.strftime(t, '%A, %I:%M:%S %p, %d-%b-%Y')
-    find_latest.status = s
-    find_latest.time = time
-    find_latest.db = db
+    return(s + t)
+    #find_latest.status = s
+    #find_latest.time = time
 
 #Method 1: fast method, just references what's on ram and paste
 def update_status_hdd(filename=path):
@@ -163,10 +161,10 @@ def get_latest_sensor_value(college, machineLabel):
         db = json.load(db)
     try:
         #print(college_washer_set[college][machineLabel])
-        find_latest(db,college,machineLabel)
+        ss = find_latest(db,college,machineLabel)
         #Adding sleep here makes it worse, I think it's becaue of the async funcion of javascript.
         #time.sleep(1)
-        ss = find_latest.status + "\n" + find_latest.time
+        #ss = find_latest.status + "\n" + find_latest.time
         return ss
     except Exception as e:
         print(e)
