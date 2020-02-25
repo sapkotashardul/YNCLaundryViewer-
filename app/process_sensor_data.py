@@ -46,10 +46,10 @@ def update_status_ram(college, washer, status, time):
 
 def determine_sensor_status(value):
     if value < 300:
-        return ON
+        return OFF
     # elif value > 800:
     elif value >= 300 and value <= 1100:
-        return OFF
+        return ON
     else:
         return ERROR
 
