@@ -5,8 +5,8 @@ import time
 #constants
 path = "/home/yun_da_legacy_hotmail_com/YNCLaundryViewer-/app/status_db.json"
 #path = "./status_db.json"
-ON = "AVAILABLE"
-OFF = "UNAVAILABLE"
+ON = "UNAVAILABLE"
+OFF = "AVAILABLE"
 ERROR = "ERROR"
 #with automatically closes files. So try without with.
 
@@ -46,10 +46,10 @@ def update_status_ram(college, washer, status, time):
 
 def determine_sensor_status(value):
     if value < 300:
-        return OFF
+        return ON
     # elif value > 800:
     elif value >= 300 and value <= 1100:
-        return ON
+        return OFF
     else:
         return ERROR
 
