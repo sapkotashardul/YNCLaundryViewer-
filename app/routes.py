@@ -128,38 +128,38 @@ def hello():
 #except:
 #    pass
 
-#@app.route('/cendana_washer3_status')
-#def cendana_washer3_status():
-#    cendana_washer3 = None
-#    cendana_washer3 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
-#    print("cendana_washer3_status: ", cendana_washer3)
-#    return cendana_washer3
-#try:
-#    cendana_washer3_status()
-#except:
-#    pass
+@app.route('/cendana_washer3_status')
+def cendana_washer3_status():
+    cendana_washer3 = None
+    cendana_washer3 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_3')
+    print("cendana_washer3_status: ", cendana_washer3)
+    return cendana_washer3
+try:
+    cendana_washer3_status()
+except:
+    pass
 
-#@app.route('/cendana_washer4_status')
-#def cendana_washer4_status():
-#    cendana_washer4 = None
-#    cendana_washer4 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
-#    print("cendana_washer4_status: ", cendana_washer4)
-#    return cendana_washer4
-#try:
-#    cendana_washer4_status()
-#except:
-#    pass
+@app.route('/cendana_washer4_status')
+def cendana_washer4_status():
+    cendana_washer4 = None
+    cendana_washer4 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_4')
+    print("cendana_washer4_status: ", cendana_washer4)
+    return cendana_washer4
+try:
+    cendana_washer4_status()
+except:
+    pass
 
-#@app.route('/cendana_washer5_status')
-#def cendana_washer5_status():
-#    cendana_washer5 = None
-#    cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
-#    print("cendana_washer5_status: ", cendana_washer5)
-#    return cendana_washer5
-#try:
-#    cendana_washer5_status()
-#except:
-#    pass
+@app.route('/cendana_washer5_status')
+def cendana_washer5_status():
+    cendana_washer5 = None
+    cendana_washer5 = get_latest_sensor_value(college='Cendana', machineLabel='Washer_5')
+    print("cendana_washer5_status: ", cendana_washer5)
+    return cendana_washer5
+try:
+    cendana_washer5_status()
+except:
+    pass
 
 @app.route('/cendana_washer6_status')
 def cendana_washer6_status():
