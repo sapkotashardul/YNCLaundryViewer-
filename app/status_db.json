@@ -1,19 +1,19 @@
 {
     "Cendana": {
         "Washer_1": {
-            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
+            "AVAILABLE": "Friday, 04:47:23 PM, 28-Feb-2020",
             "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
             "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
         },
         "Washer_2": {
-            "AVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
-            "UNAVAILABLE": "Wednesday, 11:59:59 PM, 01-Jan-2020",
-            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+            "AVAILABLE": "Saturday, 07:22:47 PM, 07-Mar-2020",
+            "UNAVAILABLE": "Saturday, 07:26:35 PM, 07-Mar-2020",
+            "ERROR": "Thursday, 07:55:33 PM, 05-Mar-2020"
         },
         "Washer_3": {
-            "AVAILABLE": "Friday, 03:25:36 PM, 28-Feb-2020",
-            "UNAVAILABLE": "Friday, 02:41:34 PM, 28-Feb-2020",
-            "ERROR": "Friday, 12:50:45 PM, 28-Feb-2020"
+            "AVAILABLE": "Saturday, 07:35:31 PM, 07-Mar-2020",
+            "UNAVAILABLE": "Saturday, 05:41:28 PM, 07-Mar-2020",
+            "ERROR": "Tuesday, 12:36:36 PM, 03-Mar-2020"
         },
         "Washer_4": {
             "AVAILABLE": "Friday, 03:33:34 PM, 28-Feb-2020",
@@ -21,13 +21,13 @@
             "ERROR": "Friday, 12:55:56 AM, 28-Feb-2020"
         },
         "Washer_5": {
-            "AVAILABLE": "Friday, 03:54:06 PM, 28-Feb-2020",
-            "UNAVAILABLE": "Friday, 03:07:09 PM, 28-Feb-2020",
-            "ERROR": "Wednesday, 11:59:59 PM, 01-Jan-2020"
+            "AVAILABLE": "Saturday, 07:11:30 PM, 07-Mar-2020",
+            "UNAVAILABLE": "Saturday, 06:29:29 PM, 07-Mar-2020",
+            "ERROR": "Sunday, 10:57:55 PM, 01-Mar-2020"
         },
         "Washer_6": {
-            "AVAILABLE": "Friday, 03:55:26 PM, 28-Feb-2020",
-            "UNAVAILABLE": "Friday, 03:17:40 PM, 28-Feb-2020",
+            "AVAILABLE": "Saturday, 12:11:20 PM, 07-Mar-2020",
+            "UNAVAILABLE": "Saturday, 12:07:44 PM, 07-Mar-2020",
             "ERROR": "Monday, 06:34:57 PM, 24-Feb-2020"
         }
     },
