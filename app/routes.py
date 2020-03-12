@@ -161,16 +161,16 @@ try:
 except:
     pass
 
-#@app.route('/cendana_washer6_status')
-#def cendana_washer6_status():
-#    cendana_washer6 = None
-#    cendana_washer6 = get_latest_sensor_value('Cendana', 'Washer_6')
-#    print("cendana_washer6_status: ", cendana_washer6)
-#    return cendana_washer6
-#try:
-#    cendana_washer6_status()
-#except:
-#    pass
+@app.route('/cendana_washer6_status')
+def cendana_washer6_status():
+    cendana_washer6 = None
+    cendana_washer6 = get_latest_sensor_value('Cendana', 'Washer_6')
+    print("cendana_washer6_status: ", cendana_washer6)
+    return cendana_washer6
+try:
+    cendana_washer6_status()
+except:
+    pass
 
 #@app.route('/why')
 #def cendana
