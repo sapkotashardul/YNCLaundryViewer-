@@ -509,7 +509,7 @@ function openTab(tabName) {
 
 <script type="text/javascript">
 function change_color(char1) {
-  if (document.getElementById(char1).textContent.charAt(0) == "U") {return 1}
+  if (document.getElementById(char1).textContent.charAt(0) == "U" ||document.getElementById(char1).textContent.charAt(0) == "E" ) {return 1}
   else if (document.getElementById(char1).textContent.charAt(0) == "A") {return 2}
   else {return 3};   // This function checks for the starting letter of the washer state and reports back accordingly 1 (UNAVAILABLE),2(AVAILABLE), or 3 (Error).
 };
